@@ -8,6 +8,7 @@ export enum GameState {
 }
 
 export type EntityType = 'PLAYER' | 'ENEMY' | 'COIN' | 'GOAL' | 'BLOCK' | 'POWERUP';
+export type CharacterType = 'BEAT' | 'BASS' | 'TREBLE';
 
 export interface Vector {
     x: number;
@@ -26,6 +27,7 @@ export interface Entity {
     facing?: 'LEFT' | 'RIGHT';
     health?: number;
     dead?: boolean;
+    isBig?: boolean; // New property for power-up state
 }
 
 export interface LevelData {
@@ -37,6 +39,7 @@ export interface LevelData {
     blocks: Vector[];
     enemies: Vector[];
     coins: Vector[];
+    powerups?: Vector[]; // New property for power-ups
     goal: Vector;
     startPos: Vector;
 }
@@ -46,4 +49,5 @@ export interface GameStatus {
     lives: number;
     currentLevel: number;
     state: GameState;
+    selectedCharacter: CharacterType; // Added character selection
 }

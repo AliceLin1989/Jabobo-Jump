@@ -11,8 +11,8 @@ export const LEVELS: LevelData[] = [
         startPos: { x: 2, y: 12 },
         goal: { x: 95, y: 12 },
         blocks: [
-            ...Array.from({length: 100}, (_, i) => ({x: i, y: 14})), // Floor
-            {x: 10, y: 11}, {x: 11, y: 11}, {x: 12, y: 11}, // First platform
+            ...Array.from({length: 100}, (_, i) => ({x: i, y: 14})), 
+            {x: 10, y: 11}, {x: 11, y: 11}, {x: 12, y: 11},
             {x: 20, y: 10}, {x: 21, y: 10},
             {x: 25, y: 12}, {x: 26, y: 12},
             {x: 35, y: 11}, {x: 36, y: 11}, {x: 37, y: 11},
@@ -26,7 +26,12 @@ export const LEVELS: LevelData[] = [
             {x: 62, y: 13},
         ],
         coins: [
-            {x: 11, y: 10}, {x: 20, y: 9}, {x: 36, y: 10}, {x: 65, y: 7}
+            {x: 11, y: 10}, {x: 20, y: 9}, {x: 36, y: 10}, {x: 65, y: 7},
+            {x: 50, y: 13}, {x: 75, y: 13}
+        ],
+        powerups: [
+            {x: 12, y: 10},
+            {x: 45, y: 8}
         ]
     },
     {
@@ -38,9 +43,9 @@ export const LEVELS: LevelData[] = [
         startPos: { x: 2, y: 12 },
         goal: { x: 115, y: 12 },
         blocks: [
-            ...Array.from({length: 120}, (_, i) => ({x: i, y: 14})), // Floor
-            ...Array.from({length: 120}, (_, i) => ({x: i, y: 0})), // Ceiling
-            {x: 15, y: 13}, {x: 15, y: 12}, // Pillar
+            ...Array.from({length: 120}, (_, i) => ({x: i, y: 14})), 
+            ...Array.from({length: 120}, (_, i) => ({x: i, y: 0})),
+            {x: 15, y: 13}, {x: 15, y: 12}, 
             {x: 25, y: 10}, {x: 26, y: 10}, {x: 27, y: 10},
             {x: 35, y: 13}, {x: 35, y: 12}, {x: 35, y: 11},
             {x: 50, y: 10}, {x: 51, y: 10}, {x: 52, y: 10}, {x: 53, y: 10},
@@ -52,6 +57,10 @@ export const LEVELS: LevelData[] = [
         ],
         coins: [
             {x: 26, y: 9}, {x: 51, y: 9}, {x: 71, y: 7}, {x: 95, y: 7}
+        ],
+        powerups: [
+            {x: 15, y: 11},
+            {x: 72, y: 7}
         ]
     }
 ];

@@ -43,8 +43,6 @@ class SoundManager {
   playJump() {
     this.init();
     const now = this.ctx!.currentTime;
-    this.playTone(150, 'square', now, 0.2, 0.5);
-    // Sweep up
     const osc = this.ctx!.createOscillator();
     const gain = this.ctx!.createGain();
     osc.type = 'square';
@@ -61,15 +59,28 @@ class SoundManager {
   playCoin() {
     this.init();
     const now = this.ctx!.currentTime;
-    this.playTone(987.77, 'square', now, 0.1, 0.4); // B5
-    this.playTone(1318.51, 'square', now + 0.05, 0.2, 0.4); // E6
+    this.playTone(987.77, 'square', now, 0.1, 0.4); 
+    this.playTone(1318.51, 'square', now + 0.05, 0.2, 0.4);
+  }
+
+  playPowerUp() {
+    this.init();
+    const now = this.ctx!.currentTime;
+    const notes = [523, 659, 783, 1046];
+    notes.forEach((f, i) => this.playTone(f, 'sawtooth', now + i * 0.05, 0.2, 0.4));
+  }
+
+  playShrink() {
+    this.init();
+    const now = this.ctx!.currentTime;
+    const notes = [1046, 783, 659, 523];
+    notes.forEach((f, i) => this.playTone(f, 'sine', now + i * 0.05, 0.2, 0.4));
   }
 
   playStomp() {
     this.init();
     const now = this.ctx!.currentTime;
     this.playTone(100, 'sawtooth', now, 0.1, 0.6);
-    this.playTone(50, 'sawtooth', now + 0.05, 0.2, 0.4);
   }
 
   playGameOver() {
@@ -84,7 +95,7 @@ class SoundManager {
   playLevelStart() {
     this.init();
     const now = this.ctx!.currentTime;
-    const notes = [523.25, 659.25, 783.99, 1046.50]; // C-E-G-C
+    const notes = [523.25, 659.25, 783.99, 1046.50]; 
     notes.forEach((freq, i) => {
       this.playTone(freq, 'triangle', now + i * 0.1, 0.4, 0.6);
     });
@@ -101,7 +112,6 @@ class SoundManager {
       if (this.isMuted || !this.ctx) return;
       const now = this.ctx.currentTime;
       this.playTone(melody[step % melody.length], 'triangle', now, 0.4, 0.2);
-      // Simple bass
       if (step % 2 === 0) {
         this.playTone(melody[step % melody.length] / 2, 'sine', now, 0.4, 0.3);
       }
